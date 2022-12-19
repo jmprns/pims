@@ -648,6 +648,21 @@ function get_positions() {
 }//end get_positions
 get_positions();
 
+//get all positions available and put in the table
+function get_inventory() {
+	$.ajax({
+			url: '../data/get_all_inventory.php',
+			type: 'post',
+			success: function (data) {
+				$('#inventory_dt').html(data);
+			},
+			error: function(){
+				alert('Error: L643+');
+			}
+		});
+}//end get_positions
+get_inventory();
+
 //get position id to be deleted or update
 var pos_id;
 function get_pos_id(pid, choice){
